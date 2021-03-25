@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 ul, li,
-footer, header, summary {
+footer, header {
 	font-family: 'raleway', sans-serif;
 	margin: 0;
 	padding: 0;
@@ -45,14 +45,14 @@ body {
 }
 
 #header nav {
+	display: flex;
 	position: absolute;
 	right: 0;
-	bottom: 55px;
+	bottom: 50px;
 	font-weight: 200;
 }
 
 #header nav a {
-	color: black;
 	text-decoration: none;
     font-size: 18px;
 	margin-left: 40px;
@@ -86,32 +86,10 @@ body {
 	font-size: 16px;
 }
 
-#features {
-	background:#f3eaf1;
-	border-bottom: solid 1px #272e31;
-	padding: 25px 0 25px 0;
-	color: #a0a8ab;
-}
-
-#features h2 {
-	font-size: 14px;
-	color: black;
-	font-weight: 900;
-	margin: 0 0 4px 0;
-}
-
-#features h1 {
-	color: black;
-}
-
-#features a {
-	color:white;
-}
-   
-#features p {
-    color: black;
-	font-size: 18px;
-}
+img {
+	vertical-align: middle;
+	border-style: none;
+  }
 
 a {
 	text-decoration: none;
@@ -121,105 +99,96 @@ a {
 a:hover {
 	text-decoration: none;
 }
-
-.dropbtn {
-	padding: 16px;
-	font-size: 20px;
-	color: black;
-    text-decoration: none;
-	outline: 0;
-	border: none;
-	background: transparent;
-	-webkit-appearance: none;
-}
-	
-.dropdown {
-	position: relative;
-	display: inline-block;
-}
-	  
-.dropdown-content {
-	display: none;
-	position: absolute;
-	min-width: 80px;
-	background: #a0a8ab;
-	box-shadow: 0px 8px 16px 0px #975feb;
-	z-index: 1;
-}
-	  
-.dropdown-content a {
-	color: white;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-}
-	  
-.dropdown:hover .dropdown-content {
-	 display: block;
-}
-
-.dropdown-content a:hover {
-	background-color: #f9f8fa;
-}
 	  
 .container {
-	display: flex;
-	flex-direction: column;
 	align-content: center;
 	margin: 0 auto;
 	max-width: 100%;
 	width: 1200px;
 }
 
-.row {
-	display: flex;
-	flex-wrap: wrap;
-	box-sizing: border-box;
-	align-items: stretch;
+.col-1 {
+    width: 50%;
+	padding: 50px;
 }
 
-.row > * {
-	box-sizing: border-box;
+.col-2 {
+    max-width: 50%;
+	position:relative;
+    width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
 }
 
-.row > .col-3 {
+.col-3 {
 	width: 25%;
 	padding: 5px;
 }
 
-.row > .col-4 {
-	width: 33.33333%;
+.col-4 {
+	width: 33%;
 }
 
-.row > .col-5 {
-    width: 41.66667%;
+.col-5 {
+    width: 41%;
 }
 
-.row > .col-6 {
+.col-6 {
 	width: 50%;
 }
 
-.row > .col-8 {
-    width: 66.66667%;
+.col-7 {
+    width: 50%;
+	padding: 50px;
 }
 
-.camera-image img {
-	display: block;
-	width: 100%;
-	border-radius: 10px;
+.col-7 h2 {
+	color: black;
+}
+
+.col-8 {
+	align-content: flex-start;
+    width: 66%;
+}
+
+.col-9 {
+	padding: 0 5px;
+	width: 298px;
 }
 
 .camera-image {
-	display: block;
-	padding: 5px;
+	padding: 8px;
 	box-shadow: 1px 2px 2px 1px #272d30;
 	border-radius: 10px;
-	margin: 0 0 2px 0;
 	outline: 0;
 }
 
+.text-center {
+	
+	padding:40px;
+}
 .camera-image :hover{
 	box-shadow: 2px 2px 2px 1px #272d30;
+}
+
+
+.card {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 10px;
+}
+
+.card-body {
+	padding:10px;
+}
+
+.btn-outline-danger {
+color: #dc3545;
+border-color: #dc3545;
 }
 
 .button-medium {
@@ -288,36 +257,10 @@ a:hover {
 	
 /* Basket page*/
 
-.row {
-    display: flex;
-	flex-wrap: wrap;
-	margin: 0 15px;
-}
-  
-.col-25 {
-	-ms-flex: 25%; 
-	flex: 25%;
-}
-  
-.col-50 {
-	-ms-flex: 50%; 
-	flex: 50%;
-}
-  
-.col-75 {
-	-ms-flex: 75%; 
-	flex: 75%;
-}
-  
-.col-25,
-.col-50,
-.col-75 {
-	padding: 0 20px;
-}
   
 input[type=text] {
 	font-family:inherit;
-	width: 100%;
+	width: 300px;
 	margin-bottom: 20px;
 	padding: 10px;
 	border: 1px solid black;
@@ -344,19 +287,12 @@ label {
 	display: block;
 }
   
-.icon-container {
-	margin-bottom: 20px;
-	padding: 7px 0;
-	font-size: 38px;
-}
-  
 .btn {
 	background-color: #975feb;
 	color: white;
-	padding: 0 120px;
+	padding: 20px;
 	margin: 20px 0;
 	border: none;
-	width: 50%;
 	border-radius: 3px;
 	cursor: pointer;
 	font-size: 17px;
@@ -391,11 +327,7 @@ input {
     border-style: inset;
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
     border-image: initial;
-}
-
-span.price {
-	float: right;
-	color: grey;
+	width: 315px;
 }
 
   /*cameras pages*/
@@ -418,7 +350,7 @@ span.price {
 	color: #975feb; 
 }
 
-.product img {
+.product-img {
      width: 100%; 
 	 background-image: none;
 	 border-radius: 10px;
@@ -486,40 +418,5 @@ details {
 
 	#header nav a {
 		font-size: 18px;
-	}	
-		
-	.container {
-		width: calc(100% - 40px);
-	}
-	
-	.row {
-		display: flex;
-		flex-wrap: wrap;
-		box-sizing: border-box;
-		align-items: stretch;
-	}
-
-	.row > * {
-		box-sizing: border-box;
-    }
-		
-	.row > .col-3-large {
-		width: 25%;
-	}
-		
-	.row > .col-4-large {
-		width: 33.33333%;
-	}
-
-	.row > .col-5-large {
-		width: 41.66667%;
-	}
-
-	.row > .col-6-large {
-		width: 50%;
-	}
-
-	.row > .col-8-large {
-		width: 66.66667%;
-	}
+	}		
 }
