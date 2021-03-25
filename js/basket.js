@@ -1,4 +1,4 @@
-onst serverError = document.getElementById('serverError');
+const serverError = document.getElementById('serverError');
 const cartButton = document.getElementById('cart-button');
 const cartSubmit = document.getElementById('cart-submit');
 const cartTitle = document.getElementById('title');
@@ -56,7 +56,7 @@ if (numberOfItems === 0) {
 		newDiv.appendChild(newDivImgHolder);
 		newImg.setAttribute("id", "img" + productId);
 		newImg.setAttribute("class", "img" + productId);
-		newImg.setAttribute("height", "120");
+		newImg.setAttribute("height", "100");
 		newDivImgHolder.appendChild(newImg);		
 		//making div which holds text of product
 		newTextHolder.setAttribute('class', "card-block px-2");
@@ -75,8 +75,8 @@ if (numberOfItems === 0) {
 		newTextHolder.appendChild(lineBreak);
 		//making remove button
 		removeButton.setAttribute('id', "remove" + productId);
-		removeButton.setAttribute('class',  "btn btn-outline-danger ml-1 my-2 p-1");
-		removeButton.href = "cart.html";
+		removeButton.setAttribute('class',  "btn btn-outline-danger");
+		removeButton.href = "basket.html";
 		removeButton.textContent = "Remove";		
 		newTextHolder.appendChild(removeButton);
 		removeButton.addEventListener('click', ($event) => {
@@ -132,7 +132,7 @@ if (numberOfItems === 0) {
 						} 	else {
 							reject(response);	
 							//if request unsuccessful than display default text and images and error header
-							serverError.innerHTML = "There is a problem with the server's response, please contact the administrator on orinoco@example.com";
+							serverError.innerHTML = "There is a problem with the server's response";
 							cartName.textContent = 'Name Not Found!';
 							cartImg.src = 'images/vcam_1.jpg';	  
 							cartPrice.textContent = 'Price Not Found!';
