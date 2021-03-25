@@ -1,147 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+  
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Orinoco | Basket</title>
+		<link rel="stylesheet" href="/main.css"/>
+	</head>
 
-  <head>
-    <script src="https://kit.fontawesome.com/1856a060e3.js" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=5"> 
-    <link rel="stylesheet"href="./main.css" />
-   
-     <section id="header">
-       <div class="container">
-         <div class="row">
-            <div class="col-12">
-                <!-- Logo -->
-                    <a href="index.html" class="logo-orinoco"></a> <img src="images/Orinoco logo.PNG" alt="Orinoco logo" /></a>
-                <!-- Nav -->
-                    <nav id="nav">
-                        <a href="index.html">Homepage</a>
-                        <div class="dropdown">
-                            <a><button class="dropbtn">Our Cameras</button></a>
-                            <div class="dropdown-content">
-                              <a href="katatone.html">Katatone</a>
-                              <a href="kuros.html">Kuros TTS</a>
-                              <a href="zurss.html">Zurss 50S</a>
-                              <a href="hirsch.html">Hirsch 400 DTS</a>
-                              <a href="franck.html">Franck JS</a>
-                            </div>
-                        </div>  
-                    </nav>
-            </div>
-          </div>
+	<body>
+    <header id="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <a href="index.html" class="logo-orinoco"></a> <img src="images/Orinoco logo.png" alt="Orinoco logo" /></a>
+              <nav id="nav">
+                   <a href="index.html">Homepage</a>
+                 <div class="form-inline">
+                   <a class="btn" id="basket-button" href="basket.html">basket</a>
+                 </div>
+                </nav>
+          </div>									
         </div>
-      </section>
-  </head>
-
-  <body>
-    <div class="title">
-       <h1> Checkout Page</h1>
-    </div>
-       <div class="row">
-         <div class="col-75">
-          <div class="container">      
-            <div class="row">
-              <div class="col-50">
-                <h3>Billing Address</h3>
-                  <label for="fname"><i class="fa fa-user" style="color:#975feb;"></i> Full Name</label>
-                  <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-                  <label for="email"><i class="fa fa-envelope" style="color:#975feb;"></i> Email</label>
-                  <input type="text" id="email" name="email" placeholder="john@example.com">
-                  <label for="adr"><i class="fa fa-address-card-o" style="color:#975feb;"> </i> Address</label>
-                  <input type="text" id="adr" name="address" placeholder="3 West Street">
-                  <label for="city"><i class="fa fa-institution" style="color: #975feb;" ></i> City</label>
-                  <input type="text" id="city" name="city" placeholder="London">
-
-                     <div class="row">
-                       <div class="col-50">
-                         <label for="zip">Postcode</label>
-                         <input type="text" id="postcode" name="postcode" placeholder="NW10 8EN">
-                       </div>
-                     </div>
+      </div>
+    </header>
+			
+		<h1 id="title" class="text-center m-3"></h1>
+		<div class="container">
+			<div class="row align-content-start">
+				<div class="col-2" id="main-product-area">
+					<div class="card flex-row flex-wrap" id="card">	
+						<div class="card-header border-0">					
+							<img class="cart-img" id="cart-img" src="images/vcam_1.jpg" height="100" alt=”...”>
+						</div>
+						<div class="card-block px-2">							
+							<h5 class="cart-name" id="cart-name">Card Title</h5>
+							<h6 class="cart-price" id="cart-price">Price: £9999999</h2>
+							<select class="lenses" id="lenses"></select>
+						</div>
+					</div>
+				</div>
+				<div class="col-6">
+				<form id="form_1" name="form_1" method="post" >
+					<div class="form-group">
+						<label for="firstName">First Name</label> <span class="error" id="error-firstName"></span>
+						<input id="firstName" type="text" name="firstName" class="form-control" placeholder="Enter your First Name" required />
+					</div>
+					<div class="form-group">
+						<label for="lastName">Last Name</label> <span class="error" id="error-lastName"></span>
+						<input id="lastName" type="text" name="lastName" class="form-control" placeholder="Enter your Last Name" required />
+					</div>
+					<div class="form-group">
+						<label for="Address">Address</label> <span class="error" id="error-address"></span>
+						<input id="address" type="text" name="Address" class="form-control" placeholder="Enter your Address" required />
+					</div>
+					<div class="form-group">
+						<label for="city">City</label> <span class="error" id="error-city"></span>
+						<input id="city" type="text" name="city" class="form-control" placeholder="Enter your City" required />
+					</div>
+					<div class="form-group"> 
+						<label for="email">Your Email</label> <span class="error" id="error-email"></span>
+						<input id="email" type="email" name="email" class="form-control" placeholder="Enter your Email" required />
+					</div>
+					<div class="form-group">
+						<button class="btn btn-outline-success my-2 my-sm-0" id="cart-submit"  type="submit">
+							Buy Now
+						</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-12 text-center" id="totalHolder">
+				<h2 id="totalPrice"></h2>
+			</div>
+			</div>
+		</div>		
+     <section id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-8">
+          <a href="index.html" class="logo"></a> <img src="images/Orinoco Logo.PNG" alt="Orinoco logo" /></a>
+              <div class="row">
+                <div class="col-3">
+                  <ul class="list">
+                    <li><a href="katatone.html">Buy Now!</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="basket.html">My Basket</a></li>
+                    <li><a href="#">T&C's</a></li>
+                  </ul>
+                </div>
+                <div class="col-3">
+                  <ul class="list">
+                    <li><a href="#">GDPR</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies Policy</a></li>
+                  </ul>
+                </div>
                </div>
 
-                   <div class="col-50">
-                      <h3>Payment</h3>
-                         <label for="fname">Accepted Cards</label>
-                         <div class="icon-container">
-                             <i class="fab fa-cc-visa" style="color:navy;"></i>
-                             <i class="fa fa-cc-amex" style="color:blue;"></i>
-                             <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                             <i class="fa fa-cc-discover" style="color:orange;"></i>
-                         </div>
-                                <label for="cname">Name on Card</label>
-                                <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-                                <label for="ccnum">Credit card number</label>
-                                <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-                                <label for="expmonth">Exp Month</label>
-                                <input type="text" id="expmonth" name="expmonth" placeholder="September">
-                  
-                                  <div class="row">
-                                    <div class="col-50">
-                                      <label for="expyear">Exp Year</label>
-                                      <input type="text" id="expyear" name="expyear" placeholder="2018">
-                                    </div>
-
-                                       <div class="col-50">
-                                          <label for="cvv">CVV</label>
-                                          <input type="text" id="cvv" name="cvv" placeholder="352">
-                                       </div>
-                                  </div>
-                    </div>  
-             </div>
-                                <label><input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing</label>
-                                <input type="submit" value="Continue to checkout" class="btn">
-                                <a href="index.html" class="btn-back">Back to our shop</a>
-
           </div>
-        </div>
-             <div class="col-25">
-                <div class="container">
-                    <h4>Basket <span class="price" ><i class="fa fa-shopping-cart"style="color:#975feb;"></i> <b>4</b></span></h4>
-                    <p><a href="#">Kuros TTS</a> <span class="price">$1,599.00</span></p>
-                    <p><a href="#">Zurss 50S</a> <span class="price">$499.00</span></p>
-                    <p><a href="#">Hirsch 400 DTS</a> <span class="price">$3,099.00</span></p>
-                    <p><a href="#">Franck JS</a> <span class="price">$2,099.00</span></p>
-                    <hr>
-                    <p>Total <span class="price" style="color:black"><b>$7,296.00</b></span></p>
-                </div>
-             </div>
-      </div>
-
-       <!-- Footer -->
-          <section id="footer">
-             <div class="container">
-               <div class="row">
-                  <div class="col-8 col-12-medium">
-                        <a href="index.html" class="logo"></a> <img src="images/Orinoco logo.PNG" alt="Orinoco logo" /></a>
-                        <div>
-                            <div class="row">
-                                <div class="col-3 col-12-small">
-                                    <ul class="list">
-                                        <li><a href="katatone.html">Buy Now!</a></li>
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="basket.html">My Basket</a></li>
-                                        <li><a href="#">Terms and Conditions</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-3 col-12-small">
-                                    <ul class="list">
-                                        <li><a href="#">GDPR</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Cookies Policy</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                   <div class="col-4 col-12-medium imp-medium">
-                       <h2>Informative</h2>
-                        <p>
-                            Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed. Suspendisse eu
-                            varius nibh. Suspendisse vitae magna eget odio amet mollis. Duis neque nisi,
-                            dapibus sed mattis quis, sed rutrum accumsan sed. 
-                        </p>
-                   </div>
+              <div class="col-4">
+            <h2>Informative</h2>
+            <p>
+              Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed. Suspendisse eu
+              varius nibh. Suspendisse vitae magna eget odio amet mollis. Duis neque nisi,
+              dapibus sed mattis quis, sed rutrum accumsan sed. 
+            </p>
               </div>
-           </section>
-   </body>
+        </div>
+      </div>
+    </section>
+
+		<script src="js/basket.js"></script>
+	</body>
 </html>
