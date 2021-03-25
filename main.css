@@ -39,7 +39,7 @@ body {
 	margin-top: 40px;
 }
 
-#header > .container {
+.container {
 	position: relative;
 	min-height: 155px;
 }
@@ -63,6 +63,16 @@ body {
 	color: #975feb;
 }
 
+#nav {
+	display: flex;
+	position: absolute;
+	right: 0;
+	gap: 20px;
+	bottom: 90px;
+	font-weight: 200;
+}
+
+
 #banner {
 	border-top: solid 1px #975feb;
 	box-shadow: inset 0px 1px 0px 0px #975feb;
@@ -70,9 +80,6 @@ body {
 	background: #f3eaf1;
 }
 
-#banner .bordered-feature-image {
-	margin-bottom: 0;
-}
 
 #banner p {
 	font-size: 10px;
@@ -156,6 +163,14 @@ a:hover {
 	width: 298px;
 }
 
+.col-10 {
+	max-width: 50%;
+	position:relative;
+    width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
 .camera-image {
 	padding: 8px;
 	box-shadow: 1px 2px 2px 1px #272d30;
@@ -164,8 +179,7 @@ a:hover {
 }
 
 .text-center {
-	
-	padding:40px;
+	padding: 40px;
 }
 .camera-image :hover{
 	box-shadow: 2px 2px 2px 1px #272d30;
@@ -173,22 +187,29 @@ a:hover {
 
 
 .card {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-direction: column;
+    -ms-flex-direction: row;
     flex-direction: column;
     background-color: #fff;
     background-clip: border-box;
     border-radius: 10px;
-}
+    margin-bottom: 20px;}
 
-.card-body {
-	padding:10px;
+	
+.card-block {
+	display: flex;
+	flex-wrap: wrap;
+    flex-direction: row;
+	gap: 30px;
+    width: 500px;
 }
 
 .btn-outline-danger {
-color: #dc3545;
-border-color: #dc3545;
+	display: flex;
+	align-items: center;
+	align-content: center;
+    float: right;
+    padding: 10px;
 }
 
 .button-medium {
@@ -260,7 +281,7 @@ border-color: #dc3545;
   
 input[type=text] {
 	font-family:inherit;
-	width: 300px;
+	width: 450px;
 	margin-bottom: 20px;
 	padding: 10px;
 	border: 1px solid black;
@@ -323,11 +344,9 @@ input {
     background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
     cursor: text;
     padding: 1px 2px;
-    border-width: 2px;
-    border-style: inset;
-    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-width: 1px;
     border-image: initial;
-	width: 315px;
+	width: 450px;
 }
 
   /*cameras pages*/
