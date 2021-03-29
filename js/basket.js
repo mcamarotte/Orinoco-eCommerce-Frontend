@@ -5,12 +5,6 @@ const cartTitle = document.getElementById('title');
 const cartCard = document.getElementById('card');
 const cartProductArea = document.getElementById('main-product-area');
 const totalPrice = document.getElementById('totalPrice');
-const cartForm = document.getElementById('form_1');
-const firstNameInput = document.getElementById('firstName');
-const lastNameInput = document.getElementById('lastName');
-const addressInput = document.getElementById('address');
-const cityInput = document.getElementById('city');
-const emailInput = document.getElementById('email');
 const URL = 'http://localhost:3000/api/cameras/';
 let total = 0;
 
