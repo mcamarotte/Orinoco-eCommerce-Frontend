@@ -1,6 +1,6 @@
 const serverError = document.getElementById('serverError');
 const basketButton = document.getElementById('basket-button');
-const cartSubmit = document.getElementById('cart-submit');
+const basketSubmit = document.getElementById('basket-submit');
 const cartTitle = document.getElementById('title');
 const cartCard = document.getElementById('card');
 const cartProductArea = document.getElementById('main-product-area');
@@ -56,7 +56,7 @@ if (numberOfItems === 0) {
 		newImg.setAttribute("height", "100");
 		newDivImgHolder.appendChild(newImg);		
 
-		newTextHolder.setAttribute('class', "card-block px-2");
+		newTextHolder.setAttribute('class', "card-block");
 		newDiv.appendChild(newTextHolder);
 		newH5Name.setAttribute('id', "name" + productId);
 		newH5Name.setAttribute('class', "name" + productId);
@@ -72,7 +72,7 @@ if (numberOfItems === 0) {
 		newTextHolder.appendChild(lineBreak);
 
 		removeButton.setAttribute('id', "remove" + productId);
-		removeButton.setAttribute('class',  "btn btn-outline-danger");
+		removeButton.setAttribute('class',  "btn btn-outline-option");
 		removeButton.href = "basket.html";
 		removeButton.textContent = "Remove";		
 		newTextHolder.appendChild(removeButton);
@@ -139,105 +139,3 @@ if (numberOfItems === 0) {
 		getRequest('GET', URL + productId);		
 	}
 } 
-
-
-
-const letters = /^[A-Za-z]+$/;
-const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-		
-
-
-function validateForm(){
-		if (firstNameInput.value.length < 1) {
-			document.getElementById('error-firstName').innerHTML = "* Please Enter Your First Name *";
-			firstNameInput.focus();
-		}
-		if(firstNameInput.value.match(letters) == null) {
-			document.getElementById('error-firstName').innerHTML = "* Please Use Alphabetic Characters *";
-			firstNameInput.focus();
-		}
-		if (lastNameInput.value.length < 1) {
-			document.getElementById('error-lastName').innerHTML = "* Please Enter Your Last Name *";
-			lastNameInput.focus();
-		}
-		if(lastNameInput.value.match(letters)  == null) {
-			document.getElementById('error-lastName').innerHTML = "* Please Use Alphabetic Characters *";
-			lastNameInput.focus();
-		}
-		if (addressInput.value.length < 1) {
-			document.getElementById('error-address').innerHTML = "* Please Enter Your Address *";
-			addressInput.focus();
-		}
-		if (cityInput.value.length < 1) {
-			document.getElementById('error-city').innerHTML = "* Please Enter Your City *";
-			cityInput.focus();
-		}	
-		if (emailInput.value.length < 1) {
-			document.getElementById('error-email').innerHTML = "* Please Enter Your Email *";
-			emailInput.focus();
-		}   
-		if (emailInput.value.match(mailFormat)  == null) {
-			document.getElementById('error-email').innerHTML = "* Please Enter A Valid Email *";
-			emailInput.focus();
-		}
-	if(firstNameInput.value.length < 1 || firstNameInput.value.match(letters) == null || lastNameInput.value.length < 1 || lastNameInput.value.match(letters) == null || addressInput.value.length < 1 || cityInput.value.length < 1 || emailInput.value.length < 1 || emailInput.value.match(mailFormat)  == null){
-		console.log(true);
-       	return false;
-    }
-	return true;
-}
-
-
-const productArray = [];
-for (var i = 0; i < localStorage.length; i++) {
-    var key   = localStorage.key(i);
-	productArray.push(key);
-}
-cartForm.addEventListener('submit', ($event) => {	
-	if(validateForm()){
-	$event.preventDefault();	
-
-	const contact = {	
-	firstName: firstNameInput.value,
-	lastName: lastNameInput.value,
-	address: addressInput.value,
-	city: cityInput.value,
-	email: emailInput.value
-	}  
-	const products = productArray;
-	const postData = {'contact': contact,
-					'products' : products};
-	console.log(postData);
-	makeRequest(postData);	
-	} else {
-		console.log(false);
-		$event.preventDefault();
-		return false;
-		
-	}
-});
-
-function makeRequest(data) {	
-  return new Promise((resolve, reject) => {
-
-	let apiRequest = new XMLHttpRequest();	
-    apiRequest.open('POST', URL + 'order');
-    apiRequest.onreadystatechange = () => {
-      if (apiRequest.readyState === 4) {
-        if (apiRequest.status === 200 || apiRequest.status === 201) {
-			const response = JSON.parse(apiRequest.response);
-			console.log(response);			
-			console.log(total);
-			resolve(response);
-
-			window.location.replace('confirmation.html?id=' + response.orderId + '&total=' + total);
-        } else {
-			reject(JSON.parse(apiRequest.response));		  
-			console.log("im rejected");
-        }
-    }
-  };
-  
- });	
-}
