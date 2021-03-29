@@ -15,7 +15,6 @@ if(numberOfItems != 0) {
 	basketButton.textContent = "(" + numberOfItems + ") Basket";
 }
 
-//take query parameter id from url address bar to help display product
 function queryString(obj) {  
     const result = [];
     let match;
@@ -26,7 +25,6 @@ function queryString(obj) {
     return result;
 }
 
-//display price correctly by dividing by 100 displaying it with two decimal points 
 function financial(y) {
 	let price= y/100;
 	return parseFloat(price).toFixed(2);	
