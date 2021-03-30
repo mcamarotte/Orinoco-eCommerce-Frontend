@@ -1,4 +1,3 @@
-const serverError = document.getElementById('serverError');
 const basketButton = document.getElementById('basket-button');
 const reportName = document.getElementsByClassName('card-title');
 const reportPrice = document.getElementsByClassName('prod-price');
@@ -21,7 +20,6 @@ apiRequest.onreadystatechange = () => {
   if(apiRequest.readyState === 4) {    
 	if(apiRequest.status === 200 || apiRequest.status === 201) {  		
 		const response = JSON.parse(apiRequest.response);			
-		serverError.innerHTML = "";
 		for (var i = 0; i < response.length; i++) {			
 			reportName[i].textContent = response[i].name;		
 			reportPrice[i].textContent = response[i].description;
