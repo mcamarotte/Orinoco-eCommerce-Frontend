@@ -22,7 +22,7 @@ apiRequest.onreadystatechange = () => {
 		const response = JSON.parse(apiRequest.response);			
 		for (var i = 0; i < response.length; i++) {			
 			reportName[i].textContent = response[i].name;		
-			reportPrice[i].textContent = response[i].description;
+			reportPrice[i].textContent = response[i].price;
 			reportLink[i].href = "product.html?id=" + response[i]._id;
 			reportImg[i].src = response[i].imageUrl;
 		}
