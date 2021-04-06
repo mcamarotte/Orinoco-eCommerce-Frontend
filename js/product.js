@@ -1,7 +1,6 @@
-const serverError = document.getElementById('serverError');
 const basketButton = document.getElementById('basket-button');
 const prodName = document.getElementById('prod-title');
-const prodImg = document.getElementById('product-img');
+const prodImg = document.getElementById('prod-img');
 const prodPrice = document.getElementById('prod-price');
 const prodDesc = document.getElementById('prod-desc');
 const prodLens = document.getElementById('prod-lens');
@@ -50,7 +49,6 @@ if (x === "") {
 		
 			if (typeof x === 'string') {
 				const response = JSON.parse(apiRequest.response);			
-				serverError.innerHTML = "There is a problem with the server's response";
 				prodName.textContent = response.name; 
 				prodPrice.textContent = "Price: $" + financial(response.price);
 				prodDesc.textContent = response.description;
@@ -64,7 +62,6 @@ if (x === "") {
 				prodId.href = 'product.html?id=' + response._id;	
 				prodImg.src = response.imageUrl;	
 			} else {
-				serverError.innerHTML = "There is a problem with the server's response";
 				prodName.textContent = 'Name Not Found!';
 				prodImg.src = 'images/vcam_1.jpg';	  
 				prodPrice.textContent = 'Price Not Found!';
@@ -73,13 +70,11 @@ if (x === "") {
 				
 			}		
 		} else {
-			serverError.innerHTML = "There is a problem with the server's response";
 			prodName.textContent = 'Name Not Found!';
 			prodImg.src = 'images/vcam_1.jpg';	  
 			prodPrice.textContent = 'Price Not Found!';
 			prodDesc.textContent = 'Description Not Found!';
 			prodLens.textContent = 'Lenses Not Found!';
-		
 		}		
 		}
 	};
