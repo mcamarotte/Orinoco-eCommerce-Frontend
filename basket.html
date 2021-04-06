@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lan="en">
-	<head>
-		  <meta charset="utf-8">
-		  <meta name="viewport" content="width=device-width">
+	
+    <head>
 		  <title>Orinoco | Basket</title>
-		    <link rel="stylesheet" type="text/css" href="main.css">
+		  <meta charset="utf-8"/>
+		  <meta name="viewport" content="width=device-width, initial-scale=5"/>
+		  <link rel="stylesheet" type="text/css" href="main.css">
 	</head>
+
 	<body>
-	    <header id="serverError" class="text-center" style="color:red;" ></header>
+
+	    <header id="header">
          <div class="container">
             <div class="row">
                <div class="col-9">
-		  <a href="index.html" class="logo-orinoco"></a> <img src="images/Orinoco logo.PNG" alt="Orinoco logo" /></a>
-			<nav id="nav">
-			    <a href="index.html">Homepage</a>
-			    <div class="form-inline">
-			        <a class="btn" id="basket-button" href="basket.html">basket</a>
-			    </div>
-			</nav>
-		</div>											
+                  <a href="index.html" class="logo-orinoco"><img src="images/Orinocologo.png" alt="Orinoco logo" /></a>
+                    <nav id="nav">
+                      <a href="index.html">Homepage</a>
+                        <div class="form-inline">
+                           <a class="btn btn-outline-ok" id="basket-button" href="basket.html">Basket</a>
+                        </div>
+                    </nav>
+                </div>									
             </div>
-        </div>
+          </div>
+		</header>
+
         <div id="banner">
 	        	<h1 id="title" class="text-center"></h1>
 	            	<div class="container">
-			             <div class="row align-content-start">
+			             <div class="row-basket">
 			              	<div class="col-10" id="main-product-area">
-					               <div class="card flex-row flex-wrap" id="card">	
-					                	<div class="card-header border-0">					
+					               <div class="card" id="card">	
+					                	<div class="card-header">					
 							                 <img class="basket-img" id="basket-img" src="images/vcam_1.jpg" height=80 alt=”...”>
-						                </div>
-					                 	<div class="card-block">							
-							                  <h5 class="basket-name" id="basket-name">Card Title</h5>
+						            
+										<div class="card-block">							
+							                  <h5 class="basket-name" id="basket-name">Title</h5>
 						                  	<h6 class="basket-price" id="basket-price">Price: £9999999</h2>
-						                  	<select class="lenses" id="lenses"></select>
+						                  	<select class="lenses" id="lenses" ></select> 
 						                </div>
+										</div>
 					              </div>
 			               </div>
 				           <div class="col-6">
@@ -70,38 +76,31 @@
 			                 	<h2 id="totalPrice"></h2>
 		               	  </div>
 			 </div>
-           </div> 		
+           </div> 
+
            <section id="footer">
-            <div class="container">
-              <div class="row">
-                <div class="col-8">
-		  <a href="index.html" class="logo-orinoco"></a> <img src="images/Orinoco logo.PNG" alt="Orinoco logo" /></a>
-                    <div class="row">
-                      <div class="col-3">
-                        <ul class="list">
-                          <li><a href="katatone.html">Buy Now!</a></li>
-                          <li><a href="#">Contact Us</a></li>
-                          <li><a href="basket.html">My Basket</a></li>
-                          <li><a href="#">T&C's</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-3">
-                        <ul class="list">
-                          <li><a href="#">GDPR</a></li>
-                          <li><a href="#">Privacy Policy</a></li>
-                          <li><a href="#">Cookies Policy</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                  <h2>Informative</h2>
-                    <p>
-                      Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed. Suspendisse eu
-                      varius nibh. Suspendisse vitae magna eget odio amet mollis. Duis neque nisi,
-                      dapibus sed mattis quis, sed rutrum accumsan sed. 
-                    </p>
-                </div>
+             <div class="container">
+                <div class="row">
+                   <div class="col-8">
+                      <a href="index.html" class="logo"><img src="images/Orinocologo.PNG" alt="Orinoco logo" /></a>
+                         <div class="row">
+                            <div class="col-3 col-9">
+                              <ul class="list">
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="basket.html">My Basket</a></li>
+                                <li><a href="#">T&C's</a></li>
+                              </ul>
+                            </div>
+                         </div>
+                   </div>
+                   <div class="col-4">
+                      <h2>Informative</h2>
+                        <p>
+                          Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed. Suspendisse eu
+                          varius nibh. Suspendisse vitae magna eget odio amet mollis. Duis neque nisi,
+                          dapibus sed mattis quis, sed rutrum accumsan sed. 
+                        </p>
+                   </div>
               </div>
             </div>
           </section>
