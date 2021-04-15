@@ -13,15 +13,18 @@ const emailInput = document.getElementById('email');
 const URL = 'http://localhost:3000/api/cameras/';
 let total = 0;
 
+//creating a constant for the local storage array
 const items = Object.entries(localStorage);
 const numberOfItems = items.length;
 const orderNumber = Math.floor(100000000 + Math.random() * 900000000);
 
+//display price correctly by dividing by 100 displaying it with two decimal points 
 function financial(y) {
 	let price= y/100;
 	return parseFloat(price).toFixed(2);	
 }
 
+//checking to see if there are any items in local storage
 if (numberOfItems === 0) {
 	cartTitle.textContent = 'There are no items in your basket';
 	cartProductArea.remove();
@@ -29,10 +32,12 @@ if (numberOfItems === 0) {
 } else {
 	
 	basketButton.textContent = "(" + numberOfItems + ") Basket";
-	
+		
+	//making the product id the id attribute for the div were using
 	cartCard.remove();
 	for (let k in items){
 
+		//duplicating the div dependent on how many items inside local storage
 		let productId = localStorage.key(k);
 		let newDiv = document.createElement("div");
 		let newDivImgHolder = document.createElement("div");
@@ -44,17 +49,20 @@ if (numberOfItems === 0) {
 		let removeButton = document.createElement("a");
 		let lineBreak = document.createElement("br");
 
+		//making div which holds image and text of product
 		newDiv.setAttribute('id', productId);
 		newDiv.setAttribute('class', "card flex-row flex-wrap");	
 		cartProductArea.appendChild( newDiv );
 
+		//making div which holds image of product
 		newDivImgHolder.setAttribute('class', "card-header border-0");
 		newDiv.appendChild(newDivImgHolder);
 		newImg.setAttribute("id", "img" + productId);
 		newImg.setAttribute("class", "img" + productId);
 		newImg.setAttribute("height", "100");
-		newDivImgHolder.appendChild(newImg);		
+		newDivImgHolder.appendChild(newImg);
 
+		//making div which holds text of product
 		newTextHolder.setAttribute('class', "card-block");
 		newDiv.appendChild(newTextHolder);
 		newH5Name.setAttribute('id', "name" + productId);
@@ -70,6 +78,7 @@ if (numberOfItems === 0) {
 
 		newTextHolder.appendChild(lineBreak);
 
+		//making remove button
 		removeButton.setAttribute('id', "remove" + productId);
 		removeButton.setAttribute('class',  "btn btn-outline-option");
 		removeButton.href = "basket.html";
@@ -82,8 +91,9 @@ if (numberOfItems === 0) {
 		const cartName = document.getElementById("name" + productId);
 		const cartPrice =  document.getElementById("price" + productId);
 		const cartImg =  document.getElementById("img" + productId);
-		const cartLens =  document.getElementById("lens" + productId);		
+		const cartLens =  document.getElementById("lens" + productId);
 
+		//if there are items in local storage then display 
 		if(numberOfItems === 1) {
 			cartTitle.textContent = 'There is a Camera in your basket:';	
 		} else {
@@ -92,8 +102,12 @@ if (numberOfItems === 0) {
 			function getRequest (verb, address, data) {
 				return new Promise((resolve, reject) => {
 
+				   // Prepare API request
 					let apiRequest = new XMLHttpRequest();
-
+                /* 
+				* Capture and handle form submit event
+				* Prevent default behaviour, prepare and send API request
+				*/
 				apiRequest.open(verb, address);
 				apiRequest.send();
 
@@ -102,13 +116,16 @@ if (numberOfItems === 0) {
 						const response = JSON.parse(apiRequest.response);
 						if(apiRequest.status === 200 || apiRequest.status === 201) {
 							resolve(response);
+							//if request is successful then the object displaying the name, desription etc in to its own div elementen proceed to loop through all the products 
 
 							cartName.textContent = response.name;
 							cartPrice.textContent = "$" + financial(response.price);
 							cartImg.src = response.imageUrl;
+							//calculating the total and stating the price
 
 							total += response.price;
 							totalPrice.textContent = "Total: " + "$" + financial(total);
+							//loop through the types of lens available to choose from but display the selected lens first
 
 							for(let i = 0; i < response.lenses.length; i++) {
 								let lens = document.createElement("option");
@@ -122,6 +139,7 @@ if (numberOfItems === 0) {
 							
 						} 	else {
 							reject(response);	
+							//if request unsuccessful than display default text and images and error header
 
 							serverError.innerHTML = "There is a problem with the server's response";
 							cartName.textContent = 'Name Not Found!';
@@ -142,11 +160,12 @@ const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 function validateForm(){
 
+		//make sure the text typed in  to input isnt empty
     	if (firstNameInput.value.length < 1) {
 			document.getElementById('error-firstName').innerHTML = "* Please Enter Your First Name *";
 			firstNameInput.focus();
 		}
-
+		//make sure the input typed is letter and not number
 		if(firstNameInput.value.match(letters) == null) {
 			document.getElementById('error-firstName').innerHTML = "* Please Use Alphabetic Characters *";
 			firstNameInput.focus();
@@ -172,6 +191,7 @@ function validateForm(){
 			emailInput.focus();
 		}   
 
+		//making sure the email typed is in email format and not typed without the @ and .com at the end
 		if (emailInput.value.match(mailFormat)  == null) {
 			document.getElementById('error-email').innerHTML = "* Please Enter A Valid Email *";
 			emailInput.focus();
@@ -191,17 +211,18 @@ function validateForm(){
     }
 	return true;
 }
-
+//the products id from local storage are placed back in to an array
 const productArray = [];
 for (var i = 0; i < localStorage.length; i++) {
     var key   = localStorage.key(i);
 	productArray.push(key);
 }
-
+// the basket form listener when the submit button is clicked
 cartForm.addEventListener('submit', ($event) => {	
 	if(validateForm()){
 	$event.preventDefault();	
 
+	//contact details are put into an contact object
 	const contact = {	
 	firstName: firstNameInput.value,
 	lastName: lastNameInput.value,
@@ -211,6 +232,7 @@ cartForm.addEventListener('submit', ($event) => {
 	}  
 	const products = productArray;
 
+	//the contact object and product array are grouped together 
 	const postData = {'contact': contact,
 					'products' : products};
 	console.log(postData);
@@ -224,7 +246,8 @@ cartForm.addEventListener('submit', ($event) => {
 
 function makeRequest(data) {	
   return new Promise((resolve, reject) => {
-
+	 
+	// Prepare API request
 	let apiRequest = new XMLHttpRequest();	
     apiRequest.open('POST', URL + 'order');
     apiRequest.onreadystatechange = () => {
@@ -234,7 +257,8 @@ function makeRequest(data) {
 			console.log(response);			
 			console.log(total);
 			resolve(response);
-
+			
+			//the order id and total is kept in the address bar so it can be used later in the confirmation page
 			window.location.replace('confirmation.html?id=' + response.orderId + '&total=' + total);
         } else {
 			reject(JSON.parse(apiRequest.response));		  
