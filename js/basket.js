@@ -104,7 +104,7 @@ if (numberOfItems === 0) {
 
 				   // Prepare API request
 					let apiRequest = new XMLHttpRequest();
-                /* 
+                               /* 
 				* Capture and handle form submit event
 				* Prevent default behaviour, prepare and send API request
 				*/
