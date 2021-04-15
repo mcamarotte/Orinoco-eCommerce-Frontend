@@ -33,6 +33,7 @@ body {
 	position: relative;
 	background: #f3eaf1;
 	box-shadow: inset 0px -1px 0px 0px #51575a;
+	border-bottom: solid 1px #975feb;
 }
 
 #header img {
@@ -76,18 +77,15 @@ body {
 #banner {
 	align-content: center;
 	align-items: center;
-	border-top: solid 1px #975feb;
-	box-shadow: inset 0px 1px 0px 0px #975feb;
-	padding: 35px 0 35px 0;
 	background: #f3eaf1;
 }
 
 #banner p {
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 200;
 	line-height: 36px;
-	padding-right: 16px;
-	margin: 0 0 16px 0;
+	padding-right: 14px;
+	text-align: center;
 }
 
 #banner h2 {
@@ -100,8 +98,7 @@ body {
 }
 
 #banner img {
-	vertical-align: middle;
-	border-style:none;
+	border-style: none;
 	border-radius: 10px;
   }
 
@@ -111,12 +108,14 @@ body {
 
 .sub-title {
 	text-align: center;
+	margin-left: 70px;
+	margin-top: 30px;
 }
 
 .main-card {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 
 .main-card img {
