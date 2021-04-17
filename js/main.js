@@ -10,6 +10,12 @@ const numberOfItems = items.length;
 if(numberOfItems != 0) {
 	basketButton.textContent = "(" + numberOfItems + ") Basket";
 }
+
+//display price correctly by dividing by 100 displaying it with two decimal points 
+function financial(y) {
+	let price= y/100;
+	return parseFloat(price).toFixed(2);	
+}
 // Prepare the API request
 let apiRequest = new XMLHttpRequest();
 /* 
